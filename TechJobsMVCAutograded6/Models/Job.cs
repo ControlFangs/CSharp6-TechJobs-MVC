@@ -72,6 +72,8 @@ public class Job
         return HashCode.Combine(Id);
     }
 
+
+
 }
 
 
