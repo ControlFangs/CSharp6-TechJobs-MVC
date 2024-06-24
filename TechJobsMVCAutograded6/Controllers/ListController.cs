@@ -45,22 +45,20 @@ public class ListController : Controller
     public IActionResult Jobs(string column, string value)
     {
     List<Job> jobs;
-    if (column.ToLower().Equals("all"))
-          {
-          
-            jobs = JobData.FindAll();
-           
-            ViewBag.title = "All Jobs";
-        }
-           else
-        {
-            
+    if( column.ToLower().Equals("all")){
+           jobs = JobData.FindAll();
+        ViewBag.title = "All Jobs";
+    
+    }
+    else
+    {
             jobs = JobData.FindByColumnAndValue(column, value);
-         
-            ViewBag.title = $"Jobs with {column}: {value}";
-        }
-         ViewBag.jobs = jobs;
-        return View();
+             ViewBag.title = $"Jobs with {column}: {value}";
+    }
+    ViewBag.jobs = jobs;
+    
+
+      return View();
     }
 }
 
